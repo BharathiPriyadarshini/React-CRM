@@ -1,0 +1,249 @@
+/* =====================
+   Global
+===================== */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  color: #000;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* =====================
+   Login Page
+===================== */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 320px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+.card h2,
+.card h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #000;
+}
+
+/* =====================
+   INPUT FIX (IMPORTANT)
+===================== */
+.card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  background-color: #1f2937;   /* DARK INPUT */
+  color: #ffffff !important;   /* WHITE TEXT */
+  caret-color: #ffffff;        /* WHITE CURSOR */
+}
+
+/* Placeholder */
+.card input::placeholder {
+  color: #9ca3af;
+}
+
+/* Chrome / Edge autofill fix */
+.card input:-webkit-autofill,
+.card input:-webkit-autofill:hover,
+.card input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #1f2937 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.card select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #000;
+}
+
+/* Buttons */
+.card button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #1d4ed8;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* =====================
+   Dashboard
+===================== */
+.dashboard {
+  padding: 2rem;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header: title + add user top-right */
+header {
+  display: flex;
+  justify-content: space-between; /* title left, add user right */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+header h2 {
+  color: #000;
+}
+
+.add-btn,
+.logout-btn {
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+.add-btn {
+  background-color: #16a34a; /* green */
+}
+
+.logout-btn {
+  background-color: #dc2626; /* red */
+}
+
+/* =====================
+   Table
+===================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  color: #000;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  color: #000;
+}
+
+th {
+  background-color: #f1f5f9;
+}
+
+/* Edit & Delete buttons */
+.edit-btn {
+  margin-right: 6px;
+  padding: 5px 10px;
+  background-color: #facc15;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  padding: 5px 10px;
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* =====================
+   Role Badge
+===================== */
+.badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #000;
+}
+
+.badge.user {
+  background-color: #e5e7eb;
+}
+
+.badge.admin {
+  background-color: #ddd6fe;
+}
+
+/* =====================
+   Modal
+===================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-modal {
+  width: 360px;
+  color: #000;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.save-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.cancel-btn {
+  background-color: #9ca3af;
+  color: #000;
+}
+
+.cancel-btn:hover {
+  background-color: #6b7280;
+}
+
+/* =====================
+   Logout bottom-center
+===================== */
+.logout-container {
+  display: flex;
+  justify-content: center;
+  margin-top: auto; /* pushes it to bottom */
+}
