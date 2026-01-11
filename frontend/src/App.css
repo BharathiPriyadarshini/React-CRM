@@ -2,17 +2,18 @@
    Global
 ===================== */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f6f8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f9f9f9;
+  /* Very light grey, almost white */
   margin: 0;
-  color: #000;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
 }
 
 .App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 /* =====================
@@ -22,122 +23,145 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #000;
+  /* Black background for login page for contrast */
 }
 
 .card {
   background: #ffffff;
-  padding: 2rem;
-  border-radius: 8px;
-  width: 320px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  color: #000;
+  padding: 3rem;
+  border-radius: 0;
+  /* Square edges for basic look */
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid #000;
 }
 
 .card h2,
 .card h3 {
-  margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
   text-align: center;
   color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* =====================
-   INPUT FIX (IMPORTANT)
-===================== */
-.card input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-
-  background-color: #1f2937;   /* DARK INPUT */
-  color: #ffffff !important;   /* WHITE TEXT */
-  caret-color: #ffffff;        /* WHITE CURSOR */
-}
-
-/* Placeholder */
-.card input::placeholder {
-  color: #9ca3af;
-}
-
-/* Chrome / Edge autofill fix */
-.card input:-webkit-autofill,
-.card input:-webkit-autofill:hover,
-.card input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #ffffff !important;
-  -webkit-box-shadow: 0 0 0px 1000px #1f2937 inset !important;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
+/* Inputs */
+.card input,
 .card select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #000;
+  border-radius: 0;
+  /* Square inputs */
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: #fff;
   color: #000;
+}
+
+.card input:focus,
+.card select:focus {
+  outline: 2px solid #000;
+  border-color: #000;
 }
 
 /* Buttons */
-.card button {
+button {
   width: 100%;
-  padding: 10px;
-  background-color: #2563eb;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
+  padding: 14px;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 0;
+  /* Square buttons */
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
-.card button:hover {
-  background-color: #1d4ed8;
+button:hover {
+  background-color: #333;
+  border-color: #333;
+}
+
+button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
 }
 
 .error {
   color: red;
-  margin-top: 10px;
+  margin-top: 15px;
   text-align: center;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 /* =====================
    Dashboard
 ===================== */
 .dashboard {
-  padding: 2rem;
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
 }
 
-/* Header: title + add user top-right */
+/* Header */
 header {
   display: flex;
-  justify-content: space-between; /* title left, add user right */
-  align-items: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 20px;
 }
 
 header h2 {
-  color: #000;
+  margin: 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
 }
 
+.header-actions {
+  display: flex;
+  gap: 15px;
+}
+
+/* Specific buttons override */
 .add-btn,
+.change-pw-btn,
 .logout-btn {
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 8px 12px;
+  width: auto;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
 }
 
-.add-btn {
-  background-color: #16a34a; /* green */
+.add-btn:hover,
+.change-pw-btn:hover,
+.logout-btn:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
 }
 
-.logout-btn {
-  background-color: #dc2626; /* red */
+/* Logged in text */
+header p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
 }
 
 /* =====================
@@ -146,58 +170,108 @@ header h2 {
 table {
   width: 100%;
   border-collapse: collapse;
-  background: #ffffff;
-  color: #000;
-}
-
-th,
-td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
-  color: #000;
+  margin-bottom: 40px;
+  border: 2px solid #000;
 }
 
 th {
-  background-color: #f1f5f9;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 15px;
+  text-align: left;
 }
 
-/* Edit & Delete buttons */
-.edit-btn {
-  margin-right: 6px;
-  padding: 5px 10px;
-  background-color: #facc15;
+td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
   color: #000;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  font-size: 14px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Action Buttons in Table */
+.edit-btn,
+.delete-btn {
+  padding: 8px 12px;
+  font-size: 12px;
+  width: auto;
+  margin-right: 10px;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+  text-transform: uppercase;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .delete-btn {
-  padding: 5px 10px;
-  background-color: #ef4444;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-color: #000;
+  /* Keeping it black and white */
+}
+
+.delete-btn:hover {
+  background-color: #000;
 }
 
 /* =====================
-   Role Badge
+   Badges
 ===================== */
 .badge {
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  color: #000;
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid #000;
 }
 
 .badge.user {
-  background-color: #e5e7eb;
+  background-color: #fff;
+  color: #000;
 }
 
 .badge.admin {
-  background-color: #ddd6fe;
+  background-color: #000;
+  color: #fff;
+}
+
+/* =====================
+   Pagination
+===================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  border-top: 2px solid #000;
+  padding-top: 20px;
+}
+
+.pagination button {
+  width: auto;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #000;
+  color: #fff;
+}
+
+.pagination span {
+  font-weight: bold;
 }
 
 /* =====================
@@ -209,41 +283,47 @@ th {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.9);
+  /* White overlay instead of dark */
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 }
 
 .form-modal {
-  width: 360px;
-  color: #000;
+  border: 2px solid #000;
+  box-shadow: 10px 10px 0px #000;
+  /* Retro shadow */
 }
 
 .form-actions {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  margin-top: 25px;
 }
 
 .save-btn {
-  background-color: #2563eb;
-  color: #ffffff;
+  background-color: #000;
+  color: #fff;
 }
 
 .cancel-btn {
-  background-color: #9ca3af;
+  background-color: #fff;
   color: #000;
+  border: 1px solid #000;
 }
 
 .cancel-btn:hover {
-  background-color: #6b7280;
+  background-color: #ddd;
 }
 
-/* =====================
-   Logout bottom-center
-===================== */
+/* Logout Container */
+.logout-btn {
+  margin: 0;
+}
+
 .logout-container {
   display: flex;
   justify-content: center;
-  margin-top: auto; /* pushes it to bottom */
 }
