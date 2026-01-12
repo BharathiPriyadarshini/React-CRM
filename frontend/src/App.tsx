@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-const API_URL = "http://localhost:3001";
+const API_URL = "https://react-crm-ihj1.onrender.com";
 
 
 
